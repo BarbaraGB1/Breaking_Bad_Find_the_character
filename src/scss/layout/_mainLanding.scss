@@ -3,3 +3,24 @@
   justify-content: space-evenly;
   margin-top: 50px;
 }
+.imgActor {
+  width: 150px;
+  height: 200px;
+  margin-top: 5px;
+}
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  margin-left: 10px;
+  text-align: center;
+}
+.listRender {
+  width: 200px;
+  box-shadow: 3px 3px 10px;
+  border: black 1px solid;
+}
+.hidden {
+  display: none;
+}
