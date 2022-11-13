@@ -1,38 +1,49 @@
-"use strict"
-const personajesList = document.querySelector(".js-charac")
-const btnSearch = document.querySelector(".js-btnSearch")
-const input = document.querySelector(".js-inputSearch")
+"use strict";
+const personajesList = document.querySelector(".js-charac");
+const btnSearch = document.querySelector(".js-btnSearch");
+const input = document.querySelector(".js-inputSearch");
 
-let character =[]
+let character = [];
+function searchCurrent (){
 
-//Petición al servidor para obtener lista de personajes
-fetch('https://breakingbadapi.com/api/characters')
- .then((response) => response.json())
- .then((charactersList) => {
-    character= charactersList
-
-    console.log(charactersList)
-    PaintCharacter ()
-})
+}
 
 
 //Función para que pinte personajes según los reciba
-function PaintCharacter (){
-    let html ='';
-
-    for(const actor of character){
-        html+=`<li class="listRender"><article><div><img class="imgActor" src="${actor.img}" alt="Imagen actor/actriz"></div><h2>${actor.name}</h2><h3>${actor.status}</h3></article></li>`;
-    }
-
-    personajesList.innerHTML= html;
-
+function paintCharacter(listCharacter) {
+ 
+  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "arrayCharacter"><div><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"></div><h2>${listCharacter.name}</h2><h3>${listCharacter.status}</h3></article></li>`;
+  return html;
 }
 
-function handlerClick(){
-    const inputValue = input.value.toLowerCase()
-    const filterList = character.filter((character) =>character.name.toLowerCase().includes(inputValue) )
-    console.log(filterList)
-    console.log("hola")
+function renderSearch(searchList) {
+
+let html = "";
+  for (let i = 0; i < searchList.length; i++) {
+    html += paintCharacter(searchList[i]);
+  }
+ 
+  personajesList.innerHTML = html;
+}
+//función para buscar nombre por el buscador
+function handlerClick(event) {
+  event.preventDefault()
+  const inputValue = input.value.toLowerCase();
+  const filterList = character.filter((character) =>
+    character.name.toLowerCase().includes(inputValue)
+  );
+ 
+  renderSearch(filterList);
 }
 
-btnSearch.addEventListener("click",handlerClick)
+//Petición al servidor para obtener lista de personajes
+fetch("https://breakingbadapi.com/api/characters")
+  .then((response) => response.json())
+  .then((charactersList) => {
+    character = charactersList;
+
+   renderSearch(character);
+
+  });
+//evento click botón de buscar
+btnSearch.addEventListener("click", handlerClick);
