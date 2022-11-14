@@ -24,3 +24,23 @@
 .hidden {
   display: none;
 }
+
+.favourites {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+.favourites li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+.favourites img {
+  width: 100px;
+  height: 100px;
+}

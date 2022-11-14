@@ -9,3 +9,8 @@
 @import "layout/header";
 @import "core/reset";
 @import "layout/mainLanding";
+
+.selected {
+  background-color: #073d2c;
+  color: white;
+}

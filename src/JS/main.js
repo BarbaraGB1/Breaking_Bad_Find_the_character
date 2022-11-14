@@ -2,37 +2,73 @@
 const personajesList = document.querySelector(".js-charac");
 const btnSearch = document.querySelector(".js-btnSearch");
 const input = document.querySelector(".js-inputSearch");
-
+const favouritesList = document.querySelector(".js-select");
 let character = [];
-function searchCurrent (){
+let favourites = [];
 
+function listenCurrent() {
+  const allCharacter = document.querySelectorAll(".js-clickCharacter");
+  console.log(allCharacter);
+
+  for (const oneArticle of allCharacter) {
+    oneArticle.addEventListener("click", handleClickFav);
+  }
+}
+function handleClickFav(event) {
+  debugger;
+ 
+  console.log(event.currentTarget.id);
+  event.currentTarget.classList.toggle("selected");
+  //selectedCha sale como indefinido preguntar mañana
+  const selectedCha = character.find(
+    (eachCha) => eachCha.char_id === parseInt(event.currentTarget.id)
+  );
+  const favouriteSelected = favourites.findIndex(
+    (eachCha) => eachCha.char_id === event.currentTarget.id
+  );
+
+  if (favouriteSelected === -1) {
+    favourites.push(selectedCha);
+  } else {
+    favourites.splice(favouriteSelected, 1);
+  }
+
+  renderFavourites();
+  console.log(selectedCha);
 }
 
+function renderFavourites() {
+  let html = "";
+
+  for (const fav of favourites) {
+    html += paintCharacter(fav);
+  }
+  favouritesList.innerHTML = html;
+}
 
 //Función para que pinte personajes según los reciba
 function paintCharacter(listCharacter) {
- 
-  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "arrayCharacter"><div><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"></div><h2>${listCharacter.name}</h2><h3>${listCharacter.status}</h3></article></li>`;
+  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2>${listCharacter.name}</h2><h3>${listCharacter.status}</h3></article></li>`;
   return html;
 }
 
 function renderSearch(searchList) {
-
-let html = "";
+  let html = "";
   for (let i = 0; i < searchList.length; i++) {
     html += paintCharacter(searchList[i]);
   }
- 
+
   personajesList.innerHTML = html;
+  listenCurrent();
 }
 //función para buscar nombre por el buscador
 function handlerClick(event) {
-  event.preventDefault()
+  event.preventDefault();
   const inputValue = input.value.toLowerCase();
   const filterList = character.filter((character) =>
     character.name.toLowerCase().includes(inputValue)
   );
- 
+
   renderSearch(filterList);
 }
 
@@ -42,8 +78,7 @@ fetch("https://breakingbadapi.com/api/characters")
   .then((charactersList) => {
     character = charactersList;
 
-   renderSearch(character);
-
+    renderSearch(character);
   });
 //evento click botón de buscar
 btnSearch.addEventListener("click", handlerClick);
