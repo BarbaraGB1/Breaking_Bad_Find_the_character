@@ -3,6 +3,8 @@ const personajesList = document.querySelector(".js-charac");
 const btnSearch = document.querySelector(".js-btnSearch");
 const input = document.querySelector(".js-inputSearch");
 const favouritesList = document.querySelector(".js-select");
+const spoiler = document.querySelector('js-modal');
+const btnClose = document.querySelector(".js-btnClose");
 let character = [];
 let favourites = [];
 
@@ -86,6 +88,15 @@ fetch("https://breakingbadapi.com/api/characters")
   //evento click botón de buscar
 btnSearch.addEventListener("click", handlerClick);
 
+
+function showModal () {
+  debugger;
+  console.log('han pasado 5 segundos');
+  console.log(spoiler);
+  spoiler.classList.remove('hidden');
+
+}
+setTimeout(showModal,5000);
   //pintar lo que hay guardado en localStorage
 const savedFavourites = JSON.parse(localStorage.getItem("favourites"));
 
