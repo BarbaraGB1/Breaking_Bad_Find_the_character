@@ -8,23 +8,24 @@ let favourites = [];
 
 function listenCurrent() {
   const allCharacter = document.querySelectorAll(".js-clickCharacter");
-  console.log(allCharacter);
+ 
 
   for (const oneArticle of allCharacter) {
     oneArticle.addEventListener("click", handleClickFav);
   }
 }
 function handleClickFav(event) {
-  debugger;
+
  
   console.log(event.currentTarget.id);
   event.currentTarget.classList.toggle("selected");
-  //selectedCha sale como indefinido preguntar mañana
+
+ 
   const selectedCha = character.find(
     (eachCha) => eachCha.char_id === parseInt(event.currentTarget.id)
   );
   const favouriteSelected = favourites.findIndex(
-    (eachCha) => eachCha.char_id === event.currentTarget.id
+    (eachCha) => eachCha.char_id === parseInt(event.currentTarget.id)
   );
 
   if (favouriteSelected === -1) {
@@ -33,8 +34,9 @@ function handleClickFav(event) {
     favourites.splice(favouriteSelected, 1);
   }
 
-  renderFavourites();
-  console.log(selectedCha);
+  
+ localStorage.setItem("favourites", JSON.stringify( favourites));
+ renderFavourites();
 }
 
 function renderFavourites() {
@@ -80,5 +82,15 @@ fetch("https://breakingbadapi.com/api/characters")
 
     renderSearch(character);
   });
-//evento click botón de buscar
+ 
+  //evento click botón de buscar
 btnSearch.addEventListener("click", handlerClick);
+
+  //pintar lo que hay guardado en localStorage
+const savedFavourites = JSON.parse(localStorage.getItem("favourites"));
+
+console.log(savedFavourites);
+if(savedFavourites !== null){
+  favourites = savedFavourites;
+  renderFavourites();
+}
