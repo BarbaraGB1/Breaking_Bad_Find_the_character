@@ -3,6 +3,18 @@
   justify-content: space-evenly;
   margin-top: 50px;
 }
+.sectionCha {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
+.sectionFav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 20px;
+}
 .imgActor {
   width: 180px;
   height: 200px;
@@ -67,7 +79,7 @@
 }
 .blur {
   width: 100vw;
-  height: 100vh;
+  height: 1300vh;
   position: absolute;
   top: 0;
   z-index: 80;

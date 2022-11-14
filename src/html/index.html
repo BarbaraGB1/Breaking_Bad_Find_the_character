@@ -28,13 +28,19 @@
   </header>
   <main>
     <section class="containerList">
-      <ul class="characters js-charac">Personajes</ul>
-      <ul class="favourites js-select ">favoritos</ul>
+      <div class="sectionCha">
+        <h2>Personajes</h2>
+        <ul class="characters js-charac"></ul>
+      </div>
+      <div class="sectionFav">
+        <h2>Favoritos</h2>
+        <ul class="favourites js-select "></ul>
+      </div>
     </section>
   </main>
   <script src="./assets/js/main.js"></script>
-  <div class="blur hidden"></div>
-  <section class="modal js-modal ">
+  <div class="blur hidden "></div>
+  <section class="modal js-modal hidden">
     <h2>Alerta</h2>
     <h3>Esta página contiene spoilers</h3>
     <button class="js-btnClose">Continuar</button>

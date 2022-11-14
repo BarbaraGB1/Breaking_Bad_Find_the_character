@@ -3,14 +3,14 @@ const personajesList = document.querySelector(".js-charac");
 const btnSearch = document.querySelector(".js-btnSearch");
 const input = document.querySelector(".js-inputSearch");
 const favouritesList = document.querySelector(".js-select");
-const spoiler = document.querySelector('js-modal');
+
 const btnClose = document.querySelector(".js-btnClose");
 let character = [];
 let favourites = [];
 
 function listenCurrent() {
   const allCharacter = document.querySelectorAll(".js-clickCharacter");
- 
+
 
   for (const oneArticle of allCharacter) {
     oneArticle.addEventListener("click", handleClickFav);
@@ -18,11 +18,10 @@ function listenCurrent() {
 }
 function handleClickFav(event) {
 
- 
-  console.log(event.currentTarget.id);
-  event.currentTarget.classList.toggle("selected");
 
- 
+  console.log(event.currentTarget.id);  event.currentTarget.classList.toggle("selected");
+
+
   const selectedCha = character.find(
     (eachCha) => eachCha.char_id === parseInt(event.currentTarget.id)
   );
@@ -36,23 +35,41 @@ function handleClickFav(event) {
     favourites.splice(favouriteSelected, 1);
   }
 
-  
- localStorage.setItem("favourites", JSON.stringify( favourites));
- renderFavourites();
+
+  localStorage.setItem("favourites", JSON.stringify(favourites));
+  renderFavourites();
 }
 
 function renderFavourites() {
   let html = "";
 
   for (const fav of favourites) {
-    html += paintCharacter(fav);
+    html += paintFavourites(fav);
   }
   favouritesList.innerHTML = html;
 }
+//función para que pinter los favoritos
+function paintFavourites(listFav) {
 
+
+
+  let html = `<li class="listRenderFav"><article id="${listFav.char_id}" class= "article js-clickFav "><img class="imgActor" src="${listFav.img}" alt="Imagen actor/actriz"><h2>${listFav.name}</h2><h3>${listFav.status}</h3></article></li>`;
+  return html;
+}
 //Función para que pinte personajes según los reciba
 function paintCharacter(listCharacter) {
-  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2>${listCharacter.name}</h2><h3>${listCharacter.status}</h3></article></li>`;
+
+  const favouriteSelected = favourites.findIndex(
+    (eachCha) => eachCha.char_id === parseInt(listCharacter.char_id));
+  let classFav = '';
+  if (favouriteSelected === -1) {
+    classFav = '';
+  } else {
+    classFav = 'selected';
+  }
+
+
+  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article ${classFav} js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2>${listCharacter.name}</h2><h3>${listCharacter.status}</h3></article></li>`;
   return html;
 }
 
@@ -84,24 +101,25 @@ fetch("https://breakingbadapi.com/api/characters")
 
     renderSearch(character);
   });
- 
-  //evento click botón de buscar
+
+//evento click botón de buscar
 btnSearch.addEventListener("click", handlerClick);
 
 
-function showModal () {
-  debugger;
+
+//pintar lo que hay guardado en localStorage
+const savedFavourites = JSON.parse(localStorage.getItem("favourites"));
+
+console.log(savedFavourites);
+if (savedFavourites !== null) {
+  favourites = savedFavourites;
+  renderFavourites();
+}
+function showModal() {
+  const spoiler = document.querySelector('js-modal');
   console.log('han pasado 5 segundos');
   console.log(spoiler);
   spoiler.classList.remove('hidden');
 
 }
-setTimeout(showModal,5000);
-  //pintar lo que hay guardado en localStorage
-const savedFavourites = JSON.parse(localStorage.getItem("favourites"));
-
-console.log(savedFavourites);
-if(savedFavourites !== null){
-  favourites = savedFavourites;
-  renderFavourites();
-}
+setTimeout(showModal, 5000);
