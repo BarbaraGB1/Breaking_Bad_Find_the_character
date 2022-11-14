@@ -1,11 +1,13 @@
-"use strict";
-const personajesList = document.querySelector(".js-charac");
-const btnSearch = document.querySelector(".js-btnSearch");
-const input = document.querySelector(".js-inputSearch");
-const favouritesList = document.querySelector(".js-select");
+'use strict';
+
+const personajesList = document.querySelector('.js-charac');
+const btnSearch = document.querySelector('.js-btnSearch');
+const input = document.querySelector('.js-inputSearch');
+const favouritesList = document.querySelector('.js-select');
 const spoiler = document.querySelector('.js-modal');
-const btnClose = document.querySelector(".js-btnClose");
+const btnClose = document.querySelector('.js-btnClose');
 const blurDiv = document.querySelector('.js-blur');
+const reset = document.querySelector('.js-reset');
 
 let character = [];
 let favourites = [];
@@ -54,10 +56,11 @@ function renderFavourites() {
     html += paintFavourites(fav);
   }
   favouritesList.innerHTML = html;
+  listenClickRemove()
 }
 
 function paintFavourites(listFav) {
-  let html = `<li class="listRenderFav"><article id="${listFav.char_id}" class= "article js-clickFav "><img class="imgActor" src="${listFav.img}" alt="Imagen actor/actriz"><h2>${listFav.name}</h2><h3>${listFav.status}</h3></article></li>`;
+  let html = `<li class="listRenderFav"><article  class= "article js-clickFav "><img class="imgFav" src="${listFav.img}" alt="Imagen actor/actriz"><h2>${listFav.name}</h2><h3>${listFav.status}</h3><button id="${listFav.char_id}" class="removeFav js-removeFav">Eliminar<img class="imgRemove" src="https://e7.pngegg.com/pngimages/607/869/png-clipart-trachoma-fly-blindness-eye-what-can-i-help-you-with-cartoon-fictional-character.png"></button></article></li>`;
   return html;
 }
 //Función para que pinte personajes según los reciba
@@ -96,7 +99,26 @@ function handlerClick(event) {
 
   renderSearch(filterList);
 }
+//función quitar uno lista fav
+function listenClickRemove(){
+  const btnRemove = document.querySelectorAll('.js-removeFav');
+  for(const eachBtn of btnRemove){
+    eachBtn.addEventListener('click',handleClickRemove);
+  }
+}
 
+function handleClickRemove(event){
+  const posOneFav = favourites.findIndex(
+    (selectFav) => selectFav.char_id === parseInt(event.currentTarget.id)
+  );
+console.log(event.currentTarget.id);
+  if (posOneFav !== -1)
+     {
+    favourites.splice(posOneFav, 1);
+  }
+  localStorage.setItem('favourites', JSON.stringify(favourites));
+  renderFavourites();
+}
 //Petición al servidor para obtener lista de personajes
 fetch('https://breakingbadapi.com/api/characters')
   .then((response) => response.json())
@@ -105,11 +127,22 @@ fetch('https://breakingbadapi.com/api/characters')
 
     renderSearch(character);
   });
-
+//función limpiar fav
+function handleReset(event){
+  debugger;
+  event.preventDefault();
+  let html = "";
+  localStorage.removeItem('favourites');
+  favourites=[];
+  favouritesList.innerHTML = html;
+  renderSearch(character);
+ 
+}
 //evento click botón de buscar
 btnSearch.addEventListener('click', handlerClick);
 
-
+//evento botón resetear fav
+reset.addEventListener("click",handleReset);
 
 //pintar lo que hay guardado en localStorage
 const savedFavourites = JSON.parse(localStorage.getItem('favourites'));
@@ -125,7 +158,7 @@ if (savedFavourites !== null) {
 
 //Funciones para el modal.Add/Remove
 
-function showModal() {
+/*function showModal() {
   spoiler.classList.remove('hidden');
   blurDiv.classList.remove('hidden');
 }
@@ -137,4 +170,4 @@ function handleClose() {
   spoiler.classList.add('hidden');
   blurDiv.classList.add('hidden');
 }
-btnClose.addEventListener('click', handleClose);
+btnClose.addEventListener('click', handleClose);*/

@@ -33,27 +33,41 @@
   box-shadow: 3px 3px 10px;
   border: black 1px solid;
 }
-
 .favourites {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   text-align: center;
-}
-.favourites li {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
+  background-color: black;
+  color: white;
+  padding-top: 20px;
+}
+.listRenderFav {
   width: 150px;
   height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  text-align: center;
 }
 
-.favourites img {
+.imgFav {
   width: 100px;
   height: 100px;
 }
-
+.removeFav {
+  height: 25px;
+  width: 80px;
+  display: flex;
+  margin-left: 10px;
+}
+.imgRemove {
+  width: 30px;
+  height: 20px;
+}
 .modal {
   z-index: 99;
   display: flex;
