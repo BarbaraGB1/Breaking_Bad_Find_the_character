@@ -3,8 +3,10 @@ const personajesList = document.querySelector(".js-charac");
 const btnSearch = document.querySelector(".js-btnSearch");
 const input = document.querySelector(".js-inputSearch");
 const favouritesList = document.querySelector(".js-select");
-
+const spoiler = document.querySelector('.js-modal');
 const btnClose = document.querySelector(".js-btnClose");
+const blurDiv = document.querySelector('.js-blur');
+
 let character = [];
 let favourites = [];
 
@@ -116,10 +118,15 @@ if (savedFavourites !== null) {
   renderFavourites();
 }
 function showModal() {
-  const spoiler = document.querySelector('js-modal');
+ 
   console.log('han pasado 5 segundos');
   console.log(spoiler);
   spoiler.classList.remove('hidden');
-
+  blurDiv.classList.remove('hidden');
 }
-setTimeout(showModal, 5000);
+setTimeout(showModal, 2000);
+function handleClose(){
+  spoiler.classList.add('hidden');
+  blurDiv.classList.add('hidden');
+}
+btnClose.addEventListener("click",handleClose)

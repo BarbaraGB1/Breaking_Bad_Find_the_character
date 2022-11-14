@@ -33,9 +33,6 @@
   box-shadow: 3px 3px 10px;
   border: black 1px solid;
 }
-.hidden {
-  visibility: hidden;
-}
 
 .favourites {
   display: flex;
@@ -79,11 +76,11 @@
 }
 .blur {
   width: 100vw;
-  height: 1300vh;
+  height: 100vh;
   position: absolute;
   top: 0;
   z-index: 80;
-  filter: blur(8px);
-  opacity: 50%;
+  filter: blur(2px);
+  opacity: 80%;
   background-color: black;
 }
