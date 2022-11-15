@@ -4,9 +4,8 @@
 
 .containerList {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: row;
+  width: 100vw;
 }
 .sectionCha {
   display: flex;
@@ -17,14 +16,12 @@
   align-items: center;
 }
 .sectionFav {
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  justify-self: center;
   align-items: center;
-  gap: 20px;
+
   background-color: black;
   border: 5px outset hsl(205, 7%, 65%);
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
@@ -96,7 +93,7 @@
 
 .favourites {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
   justify-content: space-around;
   align-items: center;
@@ -156,19 +153,28 @@
   background-position: center;
   width: 500px;
   height: 300px;
-  top: 0;
+  top: 150px;
+  left: 340px;
+
   position: fixed;
-  margin-left: 430px;
-  margin-top: 200px;
+
   border: white 3px solid;
   box-shadow: 5px 5px 20px;
+  line-height: 1.5;
 }
-.blur {
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  z-index: 80;
-  filter: blur(2px);
-  opacity: 80%;
+
+.alert {
+  font-family: "Sono", sans-serif;
+  font-size: 40px;
+  text-decoration: underline yellow;
+}
+
+.alertText {
+  text-align: center;
+  font-family: "Sono", sans-serif;
+  font-size: 30px;
+  color: white;
+  border: black solid 2px;
   background-color: black;
+  margin-bottom: 5px;
 }

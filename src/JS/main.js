@@ -158,7 +158,7 @@ if (savedFavourites !== null) {
 
 //Funciones para el modal.Add/Remove
 
-/*function showModal() {
+function showModal() {
   spoiler.classList.remove('hidden');
   blurDiv.classList.remove('hidden');
 }
@@ -170,4 +170,4 @@ function handleClose() {
   spoiler.classList.add('hidden');
   blurDiv.classList.add('hidden');
 }
-btnClose.addEventListener('click', handleClose);*/
+btnClose.addEventListener('click', handleClose);
