@@ -5,15 +5,18 @@
 .containerList {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
 }
 .sectionCha {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 50%;
   gap: 20px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  padding-left: 50px;
 }
 .sectionFav {
   margin-left: 50px;
@@ -37,13 +40,22 @@
 .titleCha {
   font-size: 50px;
   font-family: "Sono", sans-serif;
-
+  margin-top: 50px;
   color: #073d2c;
   font-weight: 400;
-  padding-left: 647px;
+  padding-left: 600px;
   padding-bottom: 10px;
   text-decoration: overline underline #073d2c;
 }
+.titleFav {
+  font-size: 30px;
+  font-family: "Sono", sans-serif;
+  color: white;
+  font-weight: 400;
+  text-decoration: underline white;
+  margin-bottom: 20px;
+}
+
 .characters {
   display: flex;
   flex-wrap: wrap;

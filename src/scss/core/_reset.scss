@@ -130,3 +130,7 @@ table {
 * {
   box-sizing: border-box;
 }
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
