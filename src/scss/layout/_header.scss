@@ -3,11 +3,12 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-
-  height: 40vh;
+  outline: 4px outset hwb(55 76% 4%);
+  outline-offset: 0px;
+  height: 58vh;
   text-align: left;
-  background-image: url(../images/amarillo.jpg);
-  background-position: top;
+  background-image: url(../images/hd_cd7afd629b94f23eba7aebbcade65825.jpg);
+  background-position: 1px -100px;
   background-size: cover;
 }
 .input {
@@ -22,12 +23,13 @@
   transform: translate(-50%, -50%);
   position: absolute;
   left: 50%;
-  bottom: 54%;
+  bottom: 35%;
   gap: 5px;
   background-color: aliceblue;
   height: 40px;
   width: 520px;
-  box-shadow: 5px -5px 40px;
+  // box-shadow: 5px -5px 40px;
+  box-shadow: rgb(85, 221, 255) 0px 5px 15px;
   border-radius: 5px;
 }
 .btnSearch {

@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Adalab Web Starter Kit</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="icon" href="./assets/images/favicon.png" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -26,27 +29,33 @@
     </div>
 
   </header>
-  <main>
+  <main class="main">
     <section class="containerList">
-      <div class="sectionCha">
-        <h2>Personajes</h2>
-        <ul class="characters js-charac"></ul>
-      </div>
-      <div class="sectionFav">
-        <h2>Favoritos</h2>
+
+      <div class="sectionFav  ">
+        <h2 class>Favoritos</h2>
         <ul class="favourites js-select "></ul>
         <button class="js-reset reset">Reset</button>
+      </div>
+      <div class="sectionCha">
+        <h2 class="titleCha">Personajes</h2>
+        <ul class="characters js-charac"></ul>
       </div>
     </section>
 
 
     <div class="blur js-blur hidden"></div>
     <section class="modal js-modal hidden">
-      <h2>Alerta</h2>
-      <h3>Esta página contiene spoilers</h3>
+      <h2 class="alert">Alerta</h2>
+      <h3 class="alertText">Esta página contiene spoilers</h3>
       <button class="js-btnClose">Continuar</button>
     </section>
   </main>
+  <footer class=footer>
+    <small class="footer__text">Breaking Bad is regarded as one of the greatest television series of all time, and with
+      16 Primetime Emmy
+      awards &copy Adalab 2022</small>
+  </footer>
   <script src="./assets/js/main.js"></script>
 </body>
 

@@ -1,73 +1,148 @@
+.main {
+  background-color: #d5b206;
+}
+
 .containerList {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 50px;
+  align-items: center;
 }
 .sectionCha {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 .sectionFav {
+  margin-top: 50px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-self: center;
+  align-items: center;
   gap: 20px;
+  background-color: black;
+  border: 5px outset hsl(205, 7%, 65%);
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 .imgActor {
-  width: 180px;
-  height: 200px;
-  margin-top: 5px;
+  width: 118px;
+  height: 145px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  object-fit: center;
+}
+.titleCha {
+  font-size: 50px;
+  font-family: "Sono", sans-serif;
+
+  color: #073d2c;
+  font-weight: 400;
+  padding-left: 647px;
+  padding-bottom: 10px;
+  text-decoration: overline underline #073d2c;
 }
 .characters {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-around;
+  justify-content: center;
+
   margin-left: 10px;
   text-align: center;
+  width: 80vw;
 }
 .listRender {
-  width: 300px;
+  width: 120px;
   box-shadow: 3px 3px 10px;
   border: black 1px solid;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: antiquewhite;
 }
+/* SIBLING FADE: fade out siblings around a hovered item */
+
+.characters {
+  visibility: hidden;
+}
+/* Prevents :hover from triggering in the gaps between items */
+
+.characters > * {
+  visibility: visible;
+}
+/* Brings the child items back in, even though the parent is `hidden` */
+
+.characters > * {
+  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
+}
+/* Makes the fades smooth with a slight delay to prevent jumps as the mouse moves between items */
+
+.characters:hover > * {
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+/* Fade out all items when the parent is hovered */
+
+.characters > *:hover {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0ms, 0ms;
+}
+
 .favourites {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 50px;
-  background-color: black;
+
+  gap: 41px;
+
   color: white;
-  padding-top: 20px;
 }
 .listRenderFav {
-  width: 150px;
-  height: 150px;
   display: flex;
   flex-direction: column;
   justify-self: center;
   align-items: center;
   text-align: center;
+  box-shadow: 3px 3px 10px;
+  border: black 1px solid;
+
+  color: black;
+  width: 102px;
 }
 
+.nameFav,
+.statusFav {
+  font-size: 10px;
+  background-color: antiquewhite;
+}
 .imgFav {
-  width: 100px;
-  height: 100px;
+  width: 99px;
+  height: 79px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: #073d2c solid 2px;
+}
+.x {
+  transform: scale(5);
 }
 .removeFav {
-  height: 25px;
-  width: 80px;
-  display: flex;
-  margin-left: 10px;
-}
-.imgRemove {
-  width: 30px;
   height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
 }
+
 .modal {
   z-index: 99;
   display: flex;
@@ -89,7 +164,6 @@
   box-shadow: 5px 5px 20px;
 }
 .blur {
-  width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;

@@ -60,7 +60,7 @@ function renderFavourites() {
 }
 
 function paintFavourites(listFav) {
-  let html = `<li class="listRenderFav"><article  class= "article js-clickFav "><img class="imgFav" src="${listFav.img}" alt="Imagen actor/actriz"><h2>${listFav.name}</h2><h3>${listFav.status}</h3><button id="${listFav.char_id}" class="removeFav js-removeFav">Eliminar<img class="imgRemove" src="https://e7.pngegg.com/pngimages/607/869/png-clipart-trachoma-fly-blindness-eye-what-can-i-help-you-with-cartoon-fictional-character.png"></button></article></li>`;
+  let html = `<li class="listRenderFav"><article  class= "article js-clickFav "><img class="imgFav" src="${listFav.img}" alt="Imagen actor/actriz"><h2 class="nameFav">${listFav.name}</h2><h3 class="statusFav">${listFav.status}</h3 class="statusFav"><button id="${listFav.char_id}" class="removeFav js-removeFav"><svg class="x"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"/></svg></i></button></article></li>`;
   return html;
 }
 //Función para que pinte personajes según los reciba
@@ -76,7 +76,7 @@ function paintCharacter(listCharacter) {
   }
 
 
-  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article ${classFav} js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2>${listCharacter.name}</h2><h3>${listCharacter.status}</h3></article></li>`;
+  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article ${classFav} js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2 class="nameCha">${listCharacter.name}</h2><h3 class= "status">${listCharacter.status}</h3></article></li>`;
   return html;
 }
 
