@@ -155,17 +155,17 @@ if (savedFavourites !== null) {
 
 //Funciones para el modal.Add/Remove
 
-/*function showModal() {
+function showModal() {
   spoiler.classList.remove('hidden');
-  blurDiv.classList.remove('hidden');
+ 
 }
 
 setTimeout(showModal, 2000);
 
 function handleClose() {
   spoiler.classList.add('hidden');
-  blurDiv.classList.add('hidden');
-}*/
+  
+}
 
 //evento click botón de buscar
 
@@ -177,4 +177,4 @@ reset.addEventListener('click',handleReset);
 
 //evento para cerrar modal
 
-//btnClose.addEventListener('click', handleClose);
+btnClose.addEventListener('click', handleClose);
