@@ -1,36 +1,38 @@
 .header {
+  height: 30vh;
+  background-image: url(../images/hd_cd7afd629b94f23eba7aebbcade65825.jpg);
+  background-position: 0px -20px;
+  background-size: 320px 300px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   outline: 4px outset hwb(55 76% 4%);
   outline-offset: 0px;
-  height: 58vh;
   text-align: left;
-  background-image: url(../images/hd_cd7afd629b94f23eba7aebbcade65825.jpg);
-  background-position: 1px -100px;
-  background-size: cover;
-}
-.input {
-  width: 65vh;
-  border-color: aqua;
-  border-width: 1px;
 }
 .containerInput {
+  height: 40px;
+  width: 35vh;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: -20%;
+  gap: 5px;
+  background-color: aliceblue;
+  box-shadow: rgb(85, 221, 255) 0px 5px 15px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translate(-50%, -50%);
   position: absolute;
-  left: 50%;
-  bottom: 35%;
-  gap: 5px;
-  background-color: aliceblue;
-  height: 40px;
-  width: 520px;
-  // box-shadow: 5px -5px 40px;
-  box-shadow: rgb(85, 221, 255) 0px 5px 15px;
-  border-radius: 5px;
+  font-size: 10px;
+}
+.input {
+  width: 20vh;
+  border-color: aqua;
+  border-width: 1px;
+  font-size: 10px;
 }
 .btnSearch {
   height: 21px;

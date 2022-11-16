@@ -5,34 +5,33 @@
 .containerList {
   display: flex;
   flex-direction: row;
-  width: 100vw;
 }
 //Css para sección personajes
 .sectionCha {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 20px;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 .titleCha {
-  font-size: 50px;
+  font-size: 18px;
   font-family: "Sono", sans-serif;
-  color: #073d2c;
-  font-weight: 400;
-  padding-left: 647px;
+  font-weight: 700;
+  padding-top: 50px;
   padding-bottom: 10px;
+  padding-left: 30px;
+  color: #073d2c;
   text-decoration: overline underline #073d2c;
 }
 .characters {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 6px;
   justify-content: center;
   margin-left: 10px;
   text-align: center;
-  width: 80vw;
 }
 .characters {
   visibility: hidden;
@@ -53,40 +52,49 @@
   transition-delay: 0ms, 0ms;
 }
 .listRender {
-  width: 120px;
   box-shadow: 3px 3px 10px;
   border: black 1px solid;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: antiquewhite;
+  font-size: 8px;
 }
 .imgActor {
-  width: 118px;
-  height: 145px;
+  width: 78px;
+  height: 90px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
-  object-fit: center;
 }
 //Css para sección favoritos
+
 .sectionFav {
-  margin-left: 50px;
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
-  border: 5px outset hsl(205, 7%, 65%);
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  gap: 48px;
+
+  //background-color: black;
+  //border: 5px outset hsl(205, 7%, 65%);
+  // box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+  //rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.titleFav {
+  padding-top: 50px;
+  padding-left: 10px;
+  font-size: 18px;
+  font-family: "Sono", sans-serif;
+  color: #073d2c;
+  font-weight: 700;
+  text-decoration: overline underline #073d2c;
+  height: 20px;
 }
 .favourites {
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: space-around;
   align-items: center;
-  gap: 41px;
   color: white;
+  gap: 20px;
 }
 .listRenderFav {
   display: flex;
@@ -96,16 +104,18 @@
   text-align: center;
   box-shadow: 3px 3px 10px;
   border: black 1px solid;
-
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   color: black;
-  width: 102px;
+  width: 80px;
+  background-color: white;
 }
 .imgFav {
-  width: 99px;
+  width: 78px;
   height: 79px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border: #073d2c solid 2px;
+  border: aqua solid 3px;
 }
 .nameFav,
 .statusFav {
