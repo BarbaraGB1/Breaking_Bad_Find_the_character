@@ -1,12 +1,13 @@
+//Css para main y las dos secciones principales
 .main {
   background-color: #d5b206;
 }
-
 .containerList {
   display: flex;
   flex-direction: row;
   width: 100vw;
 }
+//Css para sección personajes
 .sectionCha {
   display: flex;
   flex-direction: column;
@@ -15,29 +16,9 @@
   justify-content: center;
   align-items: center;
 }
-.sectionFav {
-  margin-left: 50px;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  background-color: black;
-  border: 5px outset hsl(205, 7%, 65%);
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-.imgActor {
-  width: 118px;
-  height: 145px;
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
-  object-fit: center;
-}
 .titleCha {
   font-size: 50px;
   font-family: "Sono", sans-serif;
-
   color: #073d2c;
   font-weight: 400;
   padding-left: 647px;
@@ -49,10 +30,27 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-
   margin-left: 10px;
   text-align: center;
   width: 80vw;
+}
+.characters {
+  visibility: hidden;
+}
+.characters > * {
+  visibility: visible;
+}
+.characters > * {
+  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
+}
+.characters:hover > * {
+  opacity: 0.4;
+  transform: scale(0.9);
+}
+.characters > *:hover {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0ms, 0ms;
 }
 .listRender {
   width: 120px;
@@ -62,44 +60,32 @@
   border-top-right-radius: 10px;
   background-color: antiquewhite;
 }
-/* SIBLING FADE: fade out siblings around a hovered item */
-
-.characters {
-  visibility: hidden;
+.imgActor {
+  width: 118px;
+  height: 145px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  object-fit: center;
 }
-/* Prevents :hover from triggering in the gaps between items */
-
-.characters > * {
-  visibility: visible;
+//Css para sección favoritos
+.sectionFav {
+  margin-left: 50px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  border: 5px outset hsl(205, 7%, 65%);
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-/* Brings the child items back in, even though the parent is `hidden` */
-
-.characters > * {
-  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
-}
-/* Makes the fades smooth with a slight delay to prevent jumps as the mouse moves between items */
-
-.characters:hover > * {
-  opacity: 0.4;
-  transform: scale(0.9);
-}
-/* Fade out all items when the parent is hovered */
-
-.characters > *:hover {
-  opacity: 1;
-  transform: scale(1);
-  transition-delay: 0ms, 0ms;
-}
-
 .favourites {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: space-around;
   align-items: center;
-
   gap: 41px;
-
   color: white;
 }
 .listRenderFav {
@@ -114,12 +100,6 @@
   color: black;
   width: 102px;
 }
-
-.nameFav,
-.statusFav {
-  font-size: 10px;
-  background-color: antiquewhite;
-}
 .imgFav {
   width: 99px;
   height: 79px;
@@ -127,8 +107,10 @@
   border-top-right-radius: 10px;
   border: #073d2c solid 2px;
 }
-.x {
-  transform: scale(5);
+.nameFav,
+.statusFav {
+  font-size: 10px;
+  background-color: antiquewhite;
 }
 .removeFav {
   height: 20px;
@@ -136,10 +118,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   text-decoration: none;
 }
-
+.x {
+  transform: scale(5);
+}
+//css para modal
 .modal {
   z-index: 99;
   display: flex;
@@ -155,20 +139,16 @@
   height: 300px;
   top: 150px;
   left: 340px;
-
   position: fixed;
-
   border: white 3px solid;
   box-shadow: 5px 5px 20px;
   line-height: 1.5;
 }
-
 .alert {
   font-family: "Sono", sans-serif;
   font-size: 40px;
   text-decoration: underline yellow;
 }
-
 .alertText {
   text-align: center;
   font-family: "Sono", sans-serif;
