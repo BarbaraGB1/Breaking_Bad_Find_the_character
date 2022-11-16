@@ -240,16 +240,82 @@
     left: 50%;
   }
   .alert {
-    font-family: "Sono", sans-serif;
     font-size: 35px;
-    text-decoration: underline yellow;
   }
   .alertText {
-    text-align: center;
-    font-family: "Sono", sans-serif;
     font-size: 22px;
     width: 100%;
   }
 }
 @media all and (min-width: 1023px) {
+  .containerList {
+    gap: 100px;
+  }
+  .titleCha {
+    font-size: 50px;
+    padding-top: 100px;
+    padding-left: 860px;
+  }
+  .characters {
+    gap: 50px;
+    padding-left: 10px;
+    padding-right: 40px;
+  }
+  .listRender {
+    width: 160px;
+    font-size: 20px;
+  }
+  .imgActor {
+    width: 158px;
+    height: 175px;
+  }
+  .titleFav {
+    padding-top: 100px;
+    padding-left: 40px;
+    font-size: 50px;
+  }
+  .listRenderFav {
+    width: 140px;
+  }
+  .imgFav {
+    width: 138px;
+    height: 155px;
+  }
+  .favourites {
+    padding-top: 30px;
+    padding-left: 40px;
+  }
+  .nameFav,
+  .statusFav {
+    font-size: 20px;
+  }
+  .removeFav {
+    height: 50px;
+    width: 50px;
+  }
+  .x {
+    transform: scale(1.4);
+  }
+  .reset {
+    width: 100px;
+    height: 35px;
+    font-size: 25px;
+    margin-left: 40px;
+  }
+  .modal {
+    background-position: 0px 0px;
+    background-size: 900px;
+    width: 900px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 50%;
+  }
+  .alert {
+    font-size: 45px;
+  }
+  .alertText {
+    font-size: 40px;
+    width: 100%;
+  }
 }

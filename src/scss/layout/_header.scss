@@ -65,3 +65,23 @@
     width: 75px;
   }
 }
+@media all and (min-width: 1023px) {
+  .header {
+    height: 48vh;
+    background-position: 1px -100px;
+    background-size: cover;
+  }
+  .containerInput {
+    height: 60px;
+    bottom: -14%;
+    width: 140vh;
+  }
+  .input {
+    width: 125vh;
+    font-size: 30px;
+  }
+  .btnSearch {
+    height: 38px;
+    width: 80px;
+  }
+}
