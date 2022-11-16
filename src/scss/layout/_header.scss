@@ -1,14 +1,14 @@
 .header {
   height: 30vh;
   background-image: url(../images/hd_cd7afd629b94f23eba7aebbcade65825.jpg);
-  background-position: 0px -20px;
+  background-position: 0px -10px;
   background-size: 320px 300px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  outline: 4px outset hwb(55 76% 4%);
+  outline: 4px outset #ffffff;
   outline-offset: 0px;
   text-align: left;
 }
@@ -17,7 +17,7 @@
   width: 35vh;
   transform: translate(-50%, -50%);
   left: 50%;
-  bottom: -20%;
+  bottom: -15%;
   gap: 5px;
   background-color: aliceblue;
   box-shadow: rgb(85, 221, 255) 0px 5px 15px;
@@ -44,4 +44,24 @@
   align-items: center;
   text-align: center;
   gap: 1px;
+}
+@media all and (min-width: 768px) {
+  .header {
+    height: 35vh;
+    background-position: 1px -100px;
+    background-size: cover;
+  }
+  .containerInput {
+    height: 45px;
+    bottom: -14%;
+    width: 70vh;
+  }
+  .input {
+    width: 55vh;
+    font-size: 20px;
+  }
+  .btnSearch {
+    height: 27px;
+    width: 75px;
+  }
 }
