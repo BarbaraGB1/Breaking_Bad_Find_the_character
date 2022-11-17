@@ -69,7 +69,14 @@ function paintCharacter(listCharacter) {
   } else {
     classFav = 'selected';
   }
-  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article ${classFav} js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2 class="nameCha">${listCharacter.name}</h2><h3 class= "status">${listCharacter.status}</h3></article></li>`;
+  let unknown = "";
+  if(listCharacter.birthday === "Unknown"){
+    unknown = "No tiene fecha de nacimiento";
+  }else{
+    unknown = listCharacter.birthday;
+  }
+  let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article ${classFav} js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2 class="nameCha">${listCharacter.name}</h2><h3 class= "status">${listCharacter.status}</h3><h3 >${unknown}</h3></article></li>`;
+
   return html;
 }
 
@@ -111,6 +118,7 @@ function handleClickRemove(event){
   const posOneFav = favourites.findIndex(
     (selectFav) => selectFav.char_id === parseInt(event.currentTarget.id)
   );
+  console.log(favourites[posOneFav].name);
   if (posOneFav !== -1)
   {
     favourites.splice(posOneFav, 1);
@@ -164,7 +172,7 @@ setTimeout(showModal, 2000);
 
 function handleClose() {
   spoiler.classList.add('hidden');
-  
+  localStorage.setItem("modal", "true")
 }
 
 //evento click botón de buscar
