@@ -1,29 +1,29 @@
-'use strict';
+"use strict";
 
-const personajesList = document.querySelector('.js-charac');
-const btnSearch = document.querySelector('.js-btnSearch');
-const input = document.querySelector('.js-inputSearch');
-const favouritesList = document.querySelector('.js-select');
-const spoiler = document.querySelector('.js-modal');
-const btnClose = document.querySelector('.js-btnClose');
-const reset = document.querySelector('.js-reset');
-const sectionFav = document.querySelector('.js-sectionFav');
+const personajesList = document.querySelector(".js-charac");
+const btnSearch = document.querySelector(".js-btnSearch");
+const input = document.querySelector(".js-inputSearch");
+const favouritesList = document.querySelector(".js-select");
+const spoiler = document.querySelector(".js-modal");
+const btnClose = document.querySelector(".js-btnClose");
+const reset = document.querySelector(".js-reset");
+const sectionFav = document.querySelector(".js-sectionFav");
 let character = [];
 let favourites = [];
 
 //Función agregarle a cada artículo de personajes el evento de click
 function listenCurrent() {
-  const allCharacter = document.querySelectorAll('.js-clickCharacter');
+  const allCharacter = document.querySelectorAll(".js-clickCharacter");
   for (const oneArticle of allCharacter) {
-    oneArticle.addEventListener('click', handleClickFav);
+    oneArticle.addEventListener("click", handleClickFav);
   }
 }
 
 //función detectar el click con el id del personaje y decirle que si no pertenece a favoritos lo meta y si no lo saque
 
 function handleClickFav(event) {
-  event.currentTarget.classList.toggle('selected');
-  sectionFav.classList.remove('hidden');
+  event.currentTarget.classList.toggle("selected");
+  sectionFav.classList.remove("hidden");
   const selectedCha = character.find(
     (eachCha) => eachCha.char_id === parseInt(event.currentTarget.id)
   );
@@ -36,14 +36,14 @@ function handleClickFav(event) {
   } else {
     favourites.splice(favouriteSelected, 1);
   }
-  localStorage.setItem('favourites', JSON.stringify(favourites));
+  localStorage.setItem("favourites", JSON.stringify(favourites));
   renderFavourites();
 }
 
 //función para que pintar los favoritos
 
 function renderFavourites() {
-  let html = '';
+  let html = "";
   for (const fav of favourites) {
     html += paintFavourites(fav);
   }
@@ -62,12 +62,13 @@ function paintFavourites(listFav) {
 
 function paintCharacter(listCharacter) {
   const favouriteSelected = favourites.findIndex(
-    (eachCha) => eachCha.char_id === parseInt(listCharacter.char_id));
-  let classFav = '';
+    (eachCha) => eachCha.char_id === parseInt(listCharacter.char_id)
+  );
+  let classFav = "";
   if (favouriteSelected === -1) {
-    classFav = '';
+    classFav = "";
   } else {
-    classFav = 'selected';
+    classFav = "selected";
   }
   let html = `<li class="listRender"><article id="${listCharacter.char_id}" class= "article ${classFav} js-clickCharacter"><img class="imgActor" src="${listCharacter.img}" alt="Imagen actor/actriz"><h2 class="nameCha">${listCharacter.name}</h2><h3 class= "status">${listCharacter.status}</h3></article></li>`;
   return html;
@@ -76,14 +77,13 @@ function paintCharacter(listCharacter) {
 //Función para que pinte los personajes
 
 function renderSearch(searchList) {
-  let html = '';
+  let html = "";
   for (let i = 0; i < searchList.length; i++) {
     html += paintCharacter(searchList[i]);
   }
   personajesList.innerHTML = html;
   listenCurrent();
 }
-
 
 //función para buscar nombre por el buscador y los vuelva pintar
 
@@ -98,31 +98,30 @@ function handlerClick(event) {
 
 //función para adjudicar el evento click a cada uno de los favoritos
 
-function listenClickRemove(){
-  const btnRemove = document.querySelectorAll('.js-removeFav');
-  for(const eachBtn of btnRemove){
-    eachBtn.addEventListener('click',handleClickRemove);
+function listenClickRemove() {
+  const btnRemove = document.querySelectorAll(".js-removeFav");
+  for (const eachBtn of btnRemove) {
+    eachBtn.addEventListener("click", handleClickRemove);
   }
 }
 
 //función que quita de fav solo a uno a través del click
 
-function handleClickRemove(event){
+function handleClickRemove(event) {
   const posOneFav = favourites.findIndex(
     (selectFav) => selectFav.char_id === parseInt(event.currentTarget.id)
   );
-  if (posOneFav !== -1)
-  {
+  if (posOneFav !== -1) {
     favourites.splice(posOneFav, 1);
   }
-  localStorage.setItem('favourites', JSON.stringify(favourites));
+  localStorage.setItem("favourites", JSON.stringify(favourites));
   renderFavourites();
   renderSearch(character);
 }
 
 //Petición al servidor para obtener lista de personajes y vaya a pintarlos
 
-fetch('https://breakingbadapi.com/api/characters')
+fetch("./assets/data/character_list.json")
   .then((response) => response.json())
   .then((charactersList) => {
     character = charactersList;
@@ -132,21 +131,19 @@ fetch('https://breakingbadapi.com/api/characters')
 
 //función limpiar fav con reset
 
-function handleReset(event){
+function handleReset(event) {
   event.preventDefault();
-  let html = '';
-  localStorage.removeItem('favourites');
-  favourites=[];
+  let html = "";
+  localStorage.removeItem("favourites");
+  favourites = [];
   favouritesList.innerHTML = html;
-  sectionFav.classList.add('hidden');
+  sectionFav.classList.add("hidden");
   renderSearch(character);
 }
 
 //pintar lo que hay guardado en localStorage y si no hay lista de favoritos no pinte nada
 
-
-const savedFavourites = JSON.parse(localStorage.getItem('favourites'));
-
+const savedFavourites = JSON.parse(localStorage.getItem("favourites"));
 
 if (savedFavourites !== null) {
   favourites = savedFavourites;
@@ -156,25 +153,23 @@ if (savedFavourites !== null) {
 //Funciones para el modal.Add/Remove
 
 function showModal() {
-  spoiler.classList.remove('hidden');
- 
+  spoiler.classList.remove("hidden");
 }
 
 setTimeout(showModal, 2000);
 
 function handleClose() {
-  spoiler.classList.add('hidden');
-  
+  spoiler.classList.add("hidden");
 }
 
 //evento click botón de buscar
 
-btnSearch.addEventListener('click', handlerClick);
+btnSearch.addEventListener("click", handlerClick);
 
 //evento botón resetear fav
 
-reset.addEventListener('click',handleReset);
+reset.addEventListener("click", handleReset);
 
 //evento para cerrar modal
 
-btnClose.addEventListener('click', handleClose);
+btnClose.addEventListener("click", handleClose);

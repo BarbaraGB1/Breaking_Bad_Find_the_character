@@ -1,4 +1,9 @@
 {
+  "data": {
+    "src": "src/data/**.json",
+    "dest": "public/assets/data",
+    "dist": "docs/assets/data/"
+  },
   "env": {
     "dev": {
       "dest": "public"
